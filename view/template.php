@@ -4,13 +4,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<title><?= $title ?></title>
-		<link href="./style/style.css" rel="stylesheet" />
+		<link href="./public/CSS/styles.css" rel="stylesheet" />
 	</head>
-
+	
 	<body>
-		<header>
 
-		</header>
 
 		<section>
 

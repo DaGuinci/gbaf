@@ -1,0 +1,302 @@
+/* Mes couleurs :
+Bleu titre : #330099
+Orange titre 2 : #FF950E
+Bleu titre 3 : #3465a4
+violet fonds : #bfaaff
+gris sable : #c6c5be
+rouge gbaf : #ff0000;
+
+*/
+
+@font-face {
+	font-family: poetsen;
+	src: url(../fonts/poetsen.ttf);
+	src: url(../fonts/poetsen.woff);
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: redrose;
+	src: url(../fonts/redRose_bold.ttf);
+	src: url(../fonts/redRose_bold.woff);
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*---Header---*/
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 90px;
+	padding: 20px;
+	padding-right: 40px;
+	padding-left: 40px;
+	background-color: #ffffff;
+	border-bottom: 3px solid red;
+	position: sticky;
+	top: 0;
+}
+
+#userLog {
+	display: flex;
+	justify-content: flex-end;
+	flex-grow: 0.1;
+	align-items: center;
+}
+
+#userLog img {
+	max-width: 50px;
+	height: 50px;
+}
+
+#userLogged p
+{
+	margin: 0 20px 0 0;
+}
+
+#userLogged {
+	display: flex;
+	flex-grow: 1;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#userName {
+	font-family: poetsen;
+	font-size: 1.5em;
+	padding-left: 10px;
+}
+
+#logoSite {
+	width: 90px;
+}
+
+/*---Body---*/
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	width: 80%;
+	margin: auto;
+	border-width: 0px 3px 0px 3px;
+	border-style: solid;
+	border-color: red;
+
+}
+
+
+h1 {
+	font-family: redrose;
+	font-size: 2.2em;
+	margin-top: 0;
+}
+
+h2 {
+	text-decoration: underline;
+	color: #FF950E;
+	font-size: 1.5em;
+}
+
+h3 {
+	font-family: poetsen;
+	color: #3465a4;
+	font-style: italic;
+}
+
+p {
+
+	text-align: justify;
+	font-size: 1rem;
+}
+
+.lien {
+	text-align: right;
+}
+
+#present {
+	margin: 0;
+	background-color: #ffd5d5;
+	padding: 0 2% 0 2%;
+}
+
+#present img {
+	display: block;
+	margin: 30px auto 30px auto;
+	text-align: center;
+	border: 1px black solid;
+	border-radius: 20px;
+}
+
+hr {
+	margin-bottom: 0;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+	border-width: 1px;
+}
+
+#partnersList {
+	padding: 0 2% 0 2%;
+}
+
+#partnerBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	border: 1px black solid;
+	border-radius: 20px;
+	padding: 0 20px 0 20px;
+	margin-bottom: 10px;
+}
+
+#description
+{
+	/*border: 1px solid red;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	width: 900px;*/
+}
+
+#partnerBox img {
+	width: 300px;
+	height: auto;
+	border: 1px black solid;
+	margin: 20px 20px 20px 0;
+}
+
+/* Bouton */
+#learnMore {
+	border: 0;
+	align-self: flex-end;
+	padding: 0 20px;
+	margin: 20px 0 20px 20px;
+	font-family: poetsen;
+	font-size: 1.1rem;
+	text-align: center;
+	color: #fff;
+	text-shadow: 1px 1px 1px #000;
+	border-radius: 10px;
+	background-color: rgba(220, 0, 0, 1);
+	box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+	inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+#learnMore:hover {
+	background-color: rgba(255, 0, 0, 1);
+}
+
+#learnMore:active {
+	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+	inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
+
+/*---Formulaires---*/
+
+input, select {
+	width: 25%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=checkbox]
+{
+	width: auto;
+	display: inline;
+}
+
+input[type=submit]
+{
+	width: 25%;
+	background-color: #FF950E;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+.forum
+{
+	background-color: #DCDCDC;
+	border: 2px solid #3465a4;
+	border-radius: 10px;
+	width: 70%;
+	margin: auto;
+}
+
+.forum h4
+{
+	font-size: 0.9em;
+	background-color: #C4D7ED;
+	border-bottom: 1px solid #3465a4;
+	padding-left: 2%;
+	margin: auto;
+}
+
+.forum p
+{
+
+	padding-left: 5%;
+}
+
+.publi
+{
+	background-color: #c6c5be;
+	border: 2px solid #3465a4;
+	border-radius: 10px;
+	width: 70%;
+	margin: auto;
+	margin-top: 2%;
+}
+
+.publi h3
+{
+	border-top: 2px solid #3465a4;
+	text-align: center;
+	margin: auto;
+	padding-top: 10px;
+}
+
+.publi em
+{
+	color: #656565;
+	margin: auto;
+	vertical-align: top;
+}
+
+.publi p
+{
+	text-align: center;
+	background-color: #DCDCDC;
+	margin: auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+
+
