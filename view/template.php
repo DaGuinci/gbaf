@@ -9,12 +9,7 @@
 	
 	<body>
 
-
-		<section>
-
 			<?= $content ?>
-
-		</section>
 
 		<footer>
 

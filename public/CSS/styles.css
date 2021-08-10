@@ -28,6 +28,7 @@ rouge gbaf : #ff0000;
 
 header {
 	display: flex;
+	display: -webkit-flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 90px;
@@ -42,6 +43,7 @@ header {
 
 #userLog {
 	display: flex;
+	display: -webkit-flex;
 	justify-content: flex-end;
 	flex-grow: 0.1;
 	align-items: center;
@@ -59,6 +61,7 @@ header {
 
 #userLogged {
 	display: flex;
+	display: -webkit-flex;
 	flex-grow: 1;
 	justify-content: flex-end;
 	align-items: center;
@@ -78,10 +81,12 @@ header {
 
 body {
 	display: flex;
+	display: -webkit-flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	margin: 0;
 	padding: 0;
+	height: 100%;
 }
 
 section {
@@ -90,7 +95,6 @@ section {
 	border-width: 0px 3px 0px 3px;
 	border-style: solid;
 	border-color: red;
-
 }
 
 
@@ -98,6 +102,7 @@ h1 {
 	font-family: redrose;
 	font-size: 2.2em;
 	margin-top: 0;
+	padding-top: 20px;
 }
 
 h2 {
@@ -151,8 +156,9 @@ hr {
 
 #partnerBox {
 	display: flex;
+	display: -webkit-flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: flex-start;
 	border: 1px black solid;
 	border-radius: 20px;
@@ -160,26 +166,21 @@ hr {
 	margin-bottom: 10px;
 }
 
-#description
+#partnerDescription
 {
-	/*border: 1px solid red;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-line-clamp: 1;
-	-webkit-box-orient: vertical;
-	width: 900px;*/
+	width: 900px;
+	margin: auto 20px auto auto;
 }
 
 #partnerBox img {
-	width: 300px;
-	height: auto;
+	width: auto;
+	height: 80px;
 	border: 1px black solid;
 	margin: 20px 20px 20px 0;
 }
 
 /* Bouton */
-#learnMore {
+.button {
 	border: 0;
 	align-self: flex-end;
 	padding: 0 20px;
@@ -195,108 +196,88 @@ hr {
 	inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
-#learnMore:hover {
+.button:hover {
 	background-color: rgba(255, 0, 0, 1);
 }
 
-#learnMore:active {
+.button:active {
 	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
 	inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-
-
 /*---Formulaires---*/
+#connectForm {
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: space-around;
+	border: 1px black solid;
+}
 
-input, select {
-	width: 25%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: block;
-	border: 1px solid #ccc;
+#connectForm img {
+		width: 150px;
+		height: auto;
+		margin: auto;
+}
+
+#connectForm h1 {
+	margin: auto;
+}
+
+#connectForm input {
+	width: 100%;
+	border: 3px solid #ccc;
 	border-radius: 4px;
-	box-sizing: border-box;
+	text-align: center;
+	font-size: 1.5em;
+	height: 1.6em;
 }
 
-input[type=checkbox]
-{
-	width: auto;
-	display: inline;
+#connectForm p {
+	font-size: 1.5em;
+	margin: 20px auto 20px auto;
+	text-align: center;
 }
 
-input[type=submit]
-{
-	width: 25%;
-	background-color: #FF950E;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
-	border: none;
+#connectForm .button {
+	margin: 20px auto 20px auto;
+}
+
+#suscribeForm {
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: space-around;
+	margin: auto;
+}
+
+#suscribeForm img {
+	width: 150px;
+	height: auto;
+	margin: auto;
+}
+
+#suscribeForm h1 {
+	margin: auto;
+}
+
+#suscribeForm input {
+	width: 100%;
+	border: 3px solid #ccc;
 	border-radius: 4px;
-	cursor: pointer;
-}
-
-input[type=submit]:hover {
-	background-color: #45a049;
-}
-
-.forum
-{
-	background-color: #DCDCDC;
-	border: 2px solid #3465a4;
-	border-radius: 10px;
-	width: 70%;
-	margin: auto;
-}
-
-.forum h4
-{
-	font-size: 0.9em;
-	background-color: #C4D7ED;
-	border-bottom: 1px solid #3465a4;
-	padding-left: 2%;
-	margin: auto;
-}
-
-.forum p
-{
-
-	padding-left: 5%;
-}
-
-.publi
-{
-	background-color: #c6c5be;
-	border: 2px solid #3465a4;
-	border-radius: 10px;
-	width: 70%;
-	margin: auto;
-	margin-top: 2%;
-}
-
-.publi h3
-{
-	border-top: 2px solid #3465a4;
 	text-align: center;
-	margin: auto;
-	padding-top: 10px;
+	font-size: 1.5em;
+	height: 1.6em;
 }
 
-.publi em
-{
-	color: #656565;
-	margin: auto;
-	vertical-align: top;
-}
-
-.publi p
-{
+#suscribeForm p {
+	font-size: 1.5em;
+	margin: 20px auto 20px auto;
 	text-align: center;
-	background-color: #DCDCDC;
-	margin: auto;
-	padding-top: 15px;
-	padding-bottom: 15px;
 }
 
-
-
+#suscribeForm .button {
+	margin: 20px auto 20px auto;
+}

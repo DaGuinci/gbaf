@@ -1,5 +1,5 @@
 <?php
-require('./model/modelInfo.php');
+require('./model/partnerModel.php');
 
 function listPartners(){
 	$partnersList=getPartnersList();

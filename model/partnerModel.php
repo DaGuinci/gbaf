@@ -15,8 +15,9 @@ function getPartnersList(){
 
 function cutFirstLine($text, $max){
 	if (strlen($text)>=$max) {
+		$max=strpos($text,' ',90);
 		$firstLine=substr($text,0,$max);
 	}
-	$firstLine .= '...';
+	$firstLine .= ' (...)';
 	return $firstLine;
 }
