@@ -16,6 +16,11 @@ switch ($_GET['action']) {
 		logUser($_POST['userName'],$_POST['pass']);
 		break;
 		
+	case 'logOut':
+		session_destroy();
+		login();
+		break;
+		
 	case 'suscribe':
 		suscribe();
 		break;

@@ -14,9 +14,8 @@ function logUser($userName,$pass) {
 		$user=getUserInfo($userName);
 		$_SESSION['id']=$user['id_user'];
 		$_SESSION['userName']=$user['username'];
-		$_SESSION['fistName']=$user['nom'];
+		$_SESSION['firstName']=$user['nom'];
 		$_SESSION['name']=$user['prenom'];
-		print_r($_SESSION['userName']);
 		listPartners();
 	}
 	
