@@ -1,16 +1,40 @@
 <?php
+session_start();
 require ('./model/userModel.php');
 
-function loginForm() {
+function login(){
 	require('./view/headerView.php');
 	require('./view/loginView.php');
+}
+
+function logUser($userName,$pass) {
+	$checkPass=FALSE;
+	$checkPass=keyHole($userName,$pass);
+	if ($checkPass==TRUE) {
+		$user=getUserInfo($userName);
+		$_SESSION['id']=$user['id_user'];
+		$_SESSION['userName']=$user['username'];
+		$_SESSION['fistName']=$user['nom'];
+		$_SESSION['name']=$user['prenom'];
+		print_r($_SESSION['userName']);
+		listPartners();
+	}
+	
+	else {
+		ob_start(); ?>
+		<div id="message">Couple identifiant / mot de passe incorrect;
+			<a href="./index.php?action=login" class="retryButton" >Se connecter</a>
+		</div>
+		<?php $content = ob_get_clean();
+		require('./view/template.php');
+	}
 }
 
 function suscribe() {
 	require('./view/suscribeView.php');
 }
 
-function suscribeReturn($firstName, $name, $userName, $pass,$passConfirm,
+function suscribeProcess($firstName, $name, $userName, $pass,$passConfirm,
 $secretQuestion, $answer) {
 	if ($pass == $passConfirm) {
 		$isUserNameDispo=verifUserName($userName);
@@ -18,19 +42,28 @@ $secretQuestion, $answer) {
 			addUser($firstName,$name,$userName,$pass,$secretQuestion,$answer);
 			$title = 'Inscription';
 			ob_start();?>
-			<h1>Ok, compte créé</h1>
+			<div id="message">Votre compte a bien été créé
+			<a href="./index.php?action=login" class="retryButton" >Se connecter</a>
+			</div>
 			<?php $content = ob_get_clean();
 			require('./view/template.php');
 		}
 		else {
-			echo "Nom d'utilisateur déjà utilisé, réessayez.";
+			ob_start(); ?>
+		<div id="message">
+		Nom d'utilisateur non disponible
+ 		<a href="./index.php?action=suscribe" class="retryButton" >Réessayer</a>
+ 		</div>
+		<?php $content = ob_get_clean();
+		require('./view/template.php');
 		}
 	}
 	else {
-		echo "Mots de passe différents, réessayez.";
+		ob_start(); ?>
+	<div id="message">Mots de passe différents
+	<a href="./index.php?action=suscribe" class="retryButton" >Réessayer</a>
+	</div>
+	<?php $content = ob_get_clean();
+	require('./view/template.php');
 	}
-}
-
-function getUserInfo() {
-	
 }

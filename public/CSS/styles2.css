@@ -80,15 +80,13 @@ header {
 /*---Body---*/
 
 body {
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	justify-content: flex-start;
 	margin: 0;
 	padding: 0;
-}
-
-.content {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
+	height: 100%;
 }
 
 section {
@@ -119,45 +117,14 @@ h3 {
 	font-style: italic;
 }
 
-#message {
-	display: flex;
-	flex-direction: column;
-	align-self: center;
-	justify-content: center;
-	font-family: poetsen;
-	font-size: 1.2em;
-	border: 2px red solid;
-	border-radius: 10px;
-	padding: 10px;
-}
-
-.retryButton {
-	border: 0;
-	padding: 5px 20px;
-	margin: 5px;
-	font-family: poetsen;
-	font-size: 1.1rem;
-	text-align: center;
-	color: #fff;
-	text-shadow: 1px 1px 1px #000;
-	border-radius: 10px;
-	background-color: rgba(220, 0, 0, 1);
-	box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-	inset -2px -2px 3px rgba(0, 0, 0, .6);
-}
-
-.retryButton:hover {
-	background-color: rgba(255, 0, 0, 1);
-}
-
-.retryButton:active {
-	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-	inset 2px 2px 3px rgba(0, 0, 0, .6);
-}
-
 p {
+
 	text-align: justify;
 	font-size: 1rem;
+}
+
+.lien {
+	text-align: right;
 }
 
 #present {
@@ -216,7 +183,7 @@ hr {
 .button {
 	border: 0;
 	align-self: flex-end;
-	padding: 5px 20px;
+	padding: 0 20px;
 	margin: 20px 0 20px 20px;
 	font-family: poetsen;
 	font-size: 1.1rem;
@@ -239,24 +206,26 @@ hr {
 }
 
 /*---Formulaires---*/
-
-.connectForm {
+#connectForm {
 	display: flex;
+	display: -webkit-flex;
 	flex-direction: column;
-	width: 100%;
+	justify-content: center;
+	align-content: space-around;
+	border: 1px black solid;
 }
 
-.connectForm img {
-	width: 150px;
-	height: auto;
+#connectForm img {
+		width: 150px;
+		height: auto;
+		margin: auto;
+}
+
+#connectForm h1 {
 	margin: auto;
 }
 
-.connectForm h1 {
-	margin: auto;
-}
-
-.connectForm input {
+#connectForm input {
 	width: 100%;
 	border: 3px solid #ccc;
 	border-radius: 4px;
@@ -265,36 +234,14 @@ hr {
 	height: 1.6em;
 }
 
-.connectForm p {
+#connectForm p {
 	font-size: 1.5em;
 	margin: 20px auto 20px auto;
 	text-align: center;
 }
 
-#connectButton {
-	display: block;
-	width: 200px;
-	padding: 5px 20px;
-	margin: 10px auto;
-	border: 0;
-	font-family: poetsen;
-	font-size: 1.1rem;
-	text-align: center;
-	color: #fff;
-	text-shadow: 1px 1px 1px #000;
-	border-radius: 10px;
-	background-color: rgba(220, 0, 0, 1);
-	box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-	inset -2px -2px 3px rgba(0, 0, 0, .6);
-}
-
-#connectButton:hover {
-	background-color: rgba(255, 0, 0, 1);
-}
-
-#connectButton:active {
-	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-	inset 2px 2px 3px rgba(0, 0, 0, .6);
+#connectForm .button {
+	margin: 20px auto 20px auto;
 }
 
 #suscribeForm {
@@ -307,7 +254,7 @@ hr {
 }
 
 #suscribeForm img {
-	width: 100px;
+	width: 150px;
 	height: auto;
 	margin: auto;
 }
@@ -316,7 +263,7 @@ hr {
 	margin: auto;
 }
 
-#suscribeForm input {
+#sus.cribeForm input {
 	width: 100%;
 	border: 3px solid #ccc;
 	border-radius: 4px;

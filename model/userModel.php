@@ -20,8 +20,26 @@ function addUser($firstName, $name, $userName, $pass, $secretQuestion, $answer) 
 	'userName' => $userName,
 	'pass' => $pass,
 	'question' => $secretQuestion,
-	'reponse' => $answer
-	));
-	
+	'reponse' => $answer));
 	$req->closeCursor();
+}
+
+function keyHole($userName, $pass) {
+	$db = dbConnect();
+	$req = $db->prepare('SELECT password FROM acount WHERE username= :username');
+	$req->execute(array(
+	'username'=> $userName));
+	$resultat=$req->fetch();
+	$isPasswordCorrect = password_verify($pass, $resultat['password']);
+	return $isPasswordCorrect;
+}
+
+function getUserInfo($userName) {
+	$db = dbConnect();
+	$req = $db->prepare('SELECT id_user,nom,prenom,username,password
+	FROM acount WHERE username= :username');
+	$req->execute(array(
+	'username'=> $userName));
+	$resultat=$req->fetch();
+	return $resultat;
 }

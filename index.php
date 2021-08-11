@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('/var/www/html/public/gbaf/controller/partnerController.php');
 require('controller/userController.php');
 
@@ -7,8 +8,12 @@ switch ($_GET['action']) {
 		listPartners();
 		break;
 		
-	case 'loginForm':
-		loginForm();
+	case 'login':
+		login();
+		break;
+	
+	case 'logUser':
+		logUser($_POST['userName'],$_POST['pass']);
 		break;
 		
 	case 'suscribe':
@@ -16,18 +21,16 @@ switch ($_GET['action']) {
 		break;
 	
 	case 'sendNewUser':
-		if (isset($_POST['firstName'],$_POST['name'],$_POST['userName'],
-		$_POST['pass'],$_POST['passConfirm'],$_POST['secretQuestion'],$_POST['answer'])){
-			suscribeReturn($_POST['firstName'],$_POST['name'],$_POST['userName'],
-			$_POST['pass'],$_POST['passConfirm'],$_POST['secretQuestion'],$_POST['answer']);
-		}
-		else {
-			echo "le formulaire contient des errurs, réessayez.";
-			suscribe();
-		}
+		suscribeProcess($_POST['firstName'],$_POST['name'],$_POST['userName'],
+		$_POST['pass'],$_POST['passConfirm'],$_POST['secretQuestion'],$_POST['answer']);
 		break;
 
 	default:
-		suscribe();
+		if (isset($_SESSION['id']) AND isset($_SESSION['userName'])) {
+			listPartners();
+		}
+		else {
+			login();
+		}
 		break;
 }
