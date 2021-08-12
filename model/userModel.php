@@ -36,10 +36,34 @@ function keyHole($userName, $pass) {
 
 function getUserInfo($userName) {
 	$db = dbConnect();
-	$req = $db->prepare('SELECT id_user,nom,prenom,username,password
+	$req = $db->prepare('SELECT id_user,nom,prenom,username,password,question, reponse
 	FROM acount WHERE username= :username');
 	$req->execute(array(
 	'username'=> $userName));
 	$resultat=$req->fetch();
 	return $resultat;
+}
+
+function userModify($id, $firstName, $name, $userName, $secretQuestion, $answer){
+	$db=dbConnect();
+	$req=$db->prepare('UPDATE acount SET nom=:name, prenom=:firstName, username=:userName,
+	question = :newQuestion, reponse = :reponse WHERE id_user = :userId');
+	$req->execute(array(
+	'name' => $name,
+	'firstName'=> $firstName,
+	'userName' => $userName,
+	'newQuestion' => $secretQuestion,
+	'reponse' => $answer,
+	'userId'=>$id));
+	$req->closeCursor();
+}
+
+function passModify($id, $newPass){
+	$pass=password_hash($newPass, PASSWORD_DEFAULT);
+	$db=dbConnect();
+	$req=$db->prepare('UPDATE acount SET password=:pass WHERE id_user=:userId');
+	$req->execute(array(
+	'userId'=>$id,
+	'pass'=> $pass));
+	$req->closeCursor();
 }

@@ -37,5 +37,5 @@
 </div>
 </section>
 <?php $content = ob_get_clean(); ?>
-<?php require('./view/headerView.php');
+<?php require('headerView.php');
 require ('template.php'); ?>

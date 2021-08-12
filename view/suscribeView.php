@@ -25,6 +25,7 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require ('template.php'); ?>
+<?php require('headerView.php');
+require ('template.php'); ?>
 
 

@@ -9,9 +9,13 @@
 	
 	<body>
 
-	<div class="content">
-		<?= $content ?>
-	</div>
+		<header>
+			<?= $headerContent ?>
+		</header>
+
+		<div class="content">
+			<?= $content ?>
+		</div>
 
 		<footer>
 		</footer>

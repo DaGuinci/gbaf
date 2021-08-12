@@ -29,10 +29,10 @@ rouge gbaf : #ff0000;
 header {
 	display: flex;
 	display: -webkit-flex;
+	align-content: center;
 	justify-content: space-between;
-	align-items: center;
 	height: 90px;
-	padding: 20px;
+	padding: 20px 40px;
 	padding-right: 40px;
 	padding-left: 40px;
 	background-color: #ffffff;
@@ -41,12 +41,17 @@ header {
 	top: 0;
 }
 
+#logoSite {
+	width: 90px;
+	height: auto;
+}
+
 #userLog {
 	display: flex;
 	display: -webkit-flex;
+	align-items: center;
 	justify-content: flex-end;
 	flex-grow: 0.1;
-	align-items: center;
 }
 
 #userLog img {
@@ -59,22 +64,58 @@ header {
 	margin: 0 20px 0 0;
 }
 
-#userLogged {
-	display: flex;
-	display: -webkit-flex;
-	flex-grow: 1;
-	justify-content: flex-end;
-	align-items: center;
-}
-
 #userName {
 	font-family: poetsen;
 	font-size: 1.5em;
-	padding-left: 10px;
+	padding-right: 10px;
 }
 
-#logoSite {
-	width: 90px;
+#userMenu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	position: fixed;
+	z-index: 1000;
+	top: 35px;
+	right: 5px;
+	padding: 0;
+	background-color: #fff;
+}
+
+#userMenu:hover {
+	border: 2px red solid;
+}
+
+#userMenu img {
+	width: 30px;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+#userMenu li{
+	display: none;
+	align-items: flex-end;
+	background-color: #fff;
+	height: 40px;
+	width: 300px;
+}
+
+#userMenu a{
+	margin: 5px auto;
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 1.3em;
+	font-family: poetsen;
+	color: #6d6d6d;
+	text-decoration: none;
+
+}
+
+
+#userMenu:hover li{
+	display: flex;
+
 }
 
 /*---Body---*/
