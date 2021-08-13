@@ -10,8 +10,13 @@
 		<input type="text" name="userName"/>
 		<p>Mot de passe :</p>
 		<input type="password" name="pass"/>
+		<div id="stayLogged">
+		<input type="checkbox" name="stayLogged" value="checked"/>
+		<label>Rester connecté</label>
+		</div>
 		<input id="connectButton" type="submit" value="Valider" />
 	</form>
+	<a href="./index.php?action=forgotPass">Mot de passe oublié</a>
 	<em>Pas encore membre ?</em>
 	<a href="./index.php?action=suscribe">Cliquez ici pour vous inscrire.</a>
 	</div>

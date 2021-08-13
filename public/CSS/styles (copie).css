@@ -118,17 +118,29 @@ header {
 
 }
 
-/*---General---*/
+/*---Body---*/
 
 body {
 	margin: 0;
 	padding: 0;
 }
 
-
 .content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+section {
+	width: 80%;
+	margin: auto;
+	border-width: 0px 3px 0px 3px;
+	border-style: solid;
+	border-color: red;
 
 }
+
 
 h1 {
 	font-family: redrose;
@@ -149,24 +161,6 @@ h3 {
 	font-style: italic;
 }
 
-
-p {
-	text-align: justify;
-	font-size: 1rem;
-}
-
-.partnerSection{
-	width: 80%;
-	margin: 0 auto;
-	border-width: 0px 3px 0px 3px;
-	border-style: solid;
-	border-color: red;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-
-}
-
 #message {
 	display: flex;
 	flex-direction: column;
@@ -177,13 +171,6 @@ p {
 	border: 2px red solid;
 	border-radius: 10px;
 	padding: 10px;
-}
-
-.userSection{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
 }
 
 .retryButton {
@@ -210,16 +197,18 @@ p {
 	inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
+p {
+	text-align: justify;
+	font-size: 1rem;
+}
 
-
-
-.present {
+#present {
 	margin: 0;
 	background-color: #ffd5d5;
 	padding: 0 2% 0 2%;
 }
 
-.present img {
+#present img {
 	display: block;
 	margin: 30px auto 30px auto;
 	text-align: center;
@@ -264,19 +253,6 @@ hr {
 	border: 1px black solid;
 	margin: 20px 20px 20px 0;
 }
-
-#commentsListBox{
-	/*display: flex;
-	display: -webkit-flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: flex-start;*/
-	border: 1px black solid;
-	border-radius: 20px;
-	padding: 0 20px 0 20px;
-	margin-bottom: 10px;
-}
-
 
 /* Bouton */
 .button {

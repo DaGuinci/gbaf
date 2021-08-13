@@ -1,7 +1,7 @@
 <?php $title = 'Les partenaires'; ?>
 <?php ob_start(); ?>
-<section>
-<div id="present">
+<div class="partnerSection">
+<div class="present">
 	<h1>Le GBAF, un créateur de lien</h1>
 	<p>Né D'une volonté de mutualiser les ressources de nos différents membres, 
 	Le Groupement Banque Assurance Français​ (GBAF) est une fédération	représentant 
@@ -15,13 +15,13 @@
 	<p>Espérant que cet outil sera utile à votre mission de conseil et d'accompagnement, 
 	nous vous souhaitons une bonne navigation.</p>
 	<img src="./public/images/partnership.jpg" alt="Photo a la une"/>
-	<div id="ligne"><hr></div>
+	<hr>
 </div>
 <div id="partnersList">
 	<h1>Les partenaires du GBAF</h1>
 		<?php
 		foreach ($partnersList as $partner) {
-			//$cutLine=explode("\n",$partner['description']);
+			$partnerId=$partner['id_acteur'];
 		?>
 		<div id="partnerBox">
 		<img src="<?= htmlspecialchars($partner['logo']) ?>" alt="Logo partenaire"/>
@@ -29,13 +29,13 @@
 			<h2> <?= htmlspecialchars($partner['acteur']) ?></h2>
 			<p id="description"> <?= htmlspecialchars($partner['firstLine']) ?></p>
 			</div>
-		<button class="button" type="button"> Lire la suite </button>
+		<a href="./index.php?action=partnerPage&amp;id=<?=$partner['id_acteur']?>"><button class="button" type="button"> Lire la suite </button></a>
 		</div>
 		<?php
 		}
 		?>
 </div>
-</section>
+</div>
 <?php $content = ob_get_clean(); ?>
 <?php require('headerView.php');
 require ('template.php'); ?>

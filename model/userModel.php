@@ -34,6 +34,10 @@ function keyHole($userName, $pass) {
 	return $isPasswordCorrect;
 }
 
+function createCookie($userName, $pass){
+	setcookie('userName',$userName,time() + 24*3600, null, null, false, true);
+	setcookie('pass',$pass,time() + 24*3600, null, null, false, true);}
+
 function getUserInfo($userName) {
 	$db = dbConnect();
 	$req = $db->prepare('SELECT id_user,nom,prenom,username,password,question, reponse
@@ -64,6 +68,36 @@ function passModify($id, $newPass){
 	$req=$db->prepare('UPDATE acount SET password=:pass WHERE id_user=:userId');
 	$req->execute(array(
 	'userId'=>$id,
+	'pass'=> $pass));
+	$req->closeCursor();
+}
+
+function returnQuestion($userName){
+	$db = dbConnect();
+	$req = $db->prepare('SELECT question FROM acount WHERE username= :username');
+	$req->execute(array(
+	'username'=> $userName));
+	$resultat=$req->fetch();
+	$question=$resultat['question'];
+	return $question;
+}
+
+function getAnswer($userName){
+	$db = dbConnect();
+	$req = $db->prepare('SELECT reponse FROM acount WHERE username= :username');
+	$req->execute(array(
+	'username'=> $userName));
+	$answer=$req->fetch();
+	$answer=$answer['reponse'];
+	return $answer;
+}
+
+function userPassModify($userName, $newPass){
+	$pass=password_hash($newPass, PASSWORD_DEFAULT);
+	$db=dbConnect();
+	$req=$db->prepare('UPDATE acount SET password=:pass WHERE username=:userName');
+	$req->execute(array(
+	'userName'=>$userName,
 	'pass'=> $pass));
 	$req->closeCursor();
 }

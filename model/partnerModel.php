@@ -21,3 +21,12 @@ function cutFirstLine($text, $max){
 	$firstLine .= ' (...)';
 	return $firstLine;
 }
+
+function getPartnerInfo($id){
+	$db=dbConnect();
+	$data = $db->prepare('SELECT * FROM acteur WHERE id_acteur=:id');
+	$data->execute(array(
+	'id'=>$id));
+	$partnerInfo=$data->fetch();
+	return $partnerInfo;
+}

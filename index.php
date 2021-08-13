@@ -16,7 +16,7 @@ switch ($_GET['action']) {
 		break;
 
 	case 'logUser':
-		logUser($_POST['userName'],$_POST['pass']);
+		logUser($_POST['userName'],$_POST['pass'], $_POST['stayLogged']);
 		if (isset($_SESSION['id'])) {
 			listPartners();}
 		break;
@@ -44,6 +44,25 @@ switch ($_GET['action']) {
 		suscribeProcess($_POST['firstName'],$_POST['name'],$_POST['userName'],
 		$_POST['pass'],$_POST['passConfirm'],$_POST['secretQuestion'],$_POST['answer']);
 		break;
+		
+	case 'forgotPass':
+		passRecoverForm();
+		break;
+	
+	case 'passRecover':
+		passQuestion($_POST['userName']);
+		break;
+	
+	case 'passAnswer':
+		answerVerif($_POST['userName'],$_POST['answer']);
+		break;
+		
+	case 'sendPassInit':
+		passInitProcess($_POST['userName'],$_POST['pass'],$_POST['passConfirm']);
+		break;
+		
+	case 'partnerPage':
+		partnerInfo($_GET['id']);
 
 	default:
 		if (isset($_SESSION['id']) AND isset($_SESSION['userName'])) {
