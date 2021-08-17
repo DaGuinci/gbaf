@@ -10,25 +10,32 @@
 	</div>
 
 	<div id="commentsListBox">
-	<h1>23 Commentaires</h1>
-	<a href="#"><button class="button" type="button"> Ajouter commentaire </button></a>
+	<div id="commentsBanner">
+	<h1><p><?=$commentsNbr?> Commentaires</h1>
+	<div id="commentBoxMenu">
+	<div class="commentBoxEntry">
+	<a href="./index.php?action=comment&amp;id=<?=$partner['id_acteur']?>">Ajouter un commentaire</a>
+	<a href="./index.php?action=comment&amp;id=<?=$partner['id_acteur']?>"><img src="./public/images/comment.png" alt="like"></a>
 	</div>
-	<!--<h1>Les partenaires du GBAF</h1>
-		<?php
-		foreach ($partnersList as $partner) {
-			//$cutLine=explode("\n",$partner['description']);
+	<div class="commentBoxEntry"><p><?=$likesNbr?></p>
+	<img src="./public/images/like.png" alt="like"></div>
+	<div class="commentBoxEntry">
+	<img src="./public/images/dislike.png" alt="like"><p><p><?=$disLikesNbr?></p></div>
+	</div>
+	</div>
+	
+	<?php
+	foreach ($comments as $comment) {
 		?>
-		<div id="partnerBox">
-		<img src="<?= htmlspecialchars($partner['logo']) ?>" alt="Logo partenaire"/>
-			<div id="partnerDescription">
-			<h2> <?= htmlspecialchars($partner['acteur']) ?></h2>
-			<p id="description"> <?= htmlspecialchars($partner['firstLine']) ?></p>
-			</div>
-		<button class="button" type="button"> Lire la suite </button>
-		</div>-->
+		<div id=oneCommentBox>
+		<p>Auteur : <em><?=$comment['author']?></em></p>
+		<p>Date : <em><?=$comment['date_add']?></em></p>
+		<p>Commentaire : <em><?=$comment['post']?></em></p>
+		</div>
 		<?php
 		}
 		?>
+</div>
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php require('headerView.php');

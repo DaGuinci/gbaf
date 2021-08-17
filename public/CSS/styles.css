@@ -152,7 +152,7 @@ h3 {
 
 p {
 	text-align: justify;
-	font-size: 1rem;
+	font-size: 1em;
 }
 
 .partnerSection{
@@ -275,6 +275,65 @@ hr {
 	border-radius: 20px;
 	padding: 0 20px 0 20px;
 	margin-bottom: 10px;
+}
+
+#commentsListBox img{
+	width: 40px;
+	height: auto;
+	margin: 0 5px;
+}
+
+#commentsBanner{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#commentsBanner a, #commentsBanner p{
+	font-family: poetsen;
+	text-decoration: none;
+	color: black;
+}
+
+#commentBoxMenu{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+	flex-grow: 0.1;
+}
+
+.commentBoxEntry{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}
+
+.commentBoxEntry p{
+	display: inline;
+}
+
+.commentBoxEntry:nth-child(1){
+	margin-right: 50px;
+}
+
+#oneCommentBox{
+	border: 1px black solid;
+	border-radius: 10px;
+	padding: 0 20px 0 20px;
+	margin-bottom: 10px;
+}
+
+#oneCommentBox p{
+	font-family: poetsen;
+	font-size: 1em;
+}
+
+#oneCommentBox em{
+	font-family: serif;
+	font-size: 1em;
+	font-style: normal;
 }
 
 
@@ -418,3 +477,45 @@ input[type="checkbox"]{
 #suscribeForm .button {
 	margin: 20px auto 20px auto;
 }
+
+#commentForm{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	width: 1000px;
+	margin: auto;
+}
+
+#commentForm {
+	margin-top: 30px;
+}
+
+#commentForm #logo{
+	width: 400px;
+	height: auto;
+}
+
+ #likeDislike{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 30px auto;
+}
+
+#likeDislike img{
+	width: 45px;
+	height: auto;
+}
+
+#commentForm .button{
+	display: block;
+	margin: 30px auto;
+}
+
+#commentForm textarea{
+	width: 600px;
+	height: 300px;
+}
+

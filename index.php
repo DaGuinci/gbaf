@@ -63,6 +63,15 @@ switch ($_GET['action']) {
 		
 	case 'partnerPage':
 		partnerInfo($_GET['id']);
+		break;
+	
+	case 'comment':
+		commentForm($_GET['id']);
+		break;
+	
+	case 'sendNewComment':
+		addNewComment($_POST['partnerId'],$_POST['likeDislike'],$_POST['comment']);
+		break;
 
 	default:
 		if (isset($_SESSION['id']) AND isset($_SESSION['userName'])) {
