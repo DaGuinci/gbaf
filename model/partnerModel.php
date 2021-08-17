@@ -38,7 +38,6 @@ function getComments($partnerId){
 	$data->execute(array(
 	'id'=>$partnerId));
 	$comments=$data->fetchAll(PDO::FETCH_ASSOC);
-	
 	foreach ($comments as $comment) {
 		$getAuthor=$db->prepare('SELECT username FROM acount WHERE id_user=:user');
 		$getAuthor->execute(array('user'=>$comment['id_user']));
@@ -80,6 +79,26 @@ function votesCount($partnerId,$vote){
 	$req->execute(array(
 	'partnerId'=>$partnerId,
 	'vote'=>$vote));
+	$reponse=$req->fetch();
+	return $reponse['nbr'];
+}
+
+function commented($partnerId,$userId){
+	$db=dbConnect();
+	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM post WHERE id_acteur = :partnerId AND id_user=:userId');
+	$req->execute(array(
+	'partnerId'=>$partnerId,
+	'userId'=>$userId));
+	$reponse=$req->fetch();
+	return $reponse['nbr'];
+}
+
+function voted($partnerId,$userId){
+	$db=dbConnect();
+	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM vote WHERE id_acteur = :partnerId AND id_user=:userId');
+	$req->execute(array(
+	'partnerId'=>$partnerId,
+	'userId'=>$userId));
 	$reponse=$req->fetch();
 	return $reponse['nbr'];
 }

@@ -70,9 +70,14 @@ switch ($_GET['action']) {
 		break;
 	
 	case 'sendNewComment':
-		addNewComment($_POST['partnerId'],$_POST['likeDislike'],$_POST['comment']);
+		addNewComment($_POST['partnerId'],$_POST['vote'],$_POST['comment']);
 		break;
 
+	case 'vote':
+		addVote($_GET['partnerId'],$_SESSION['id'],$_GET['vote']);
+		break;
+	
+	
 	default:
 		if (isset($_SESSION['id']) AND isset($_SESSION['userName'])) {
 			listPartners();

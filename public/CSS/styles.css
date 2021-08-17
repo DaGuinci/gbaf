@@ -33,8 +33,6 @@ header {
 	justify-content: space-between;
 	height: 90px;
 	padding: 20px 40px;
-	padding-right: 40px;
-	padding-left: 40px;
 	background-color: #ffffff;
 	border-bottom: 3px solid red;
 	position: sticky;
@@ -167,7 +165,7 @@ p {
 
 }
 
-#message {
+.message {
 	display: flex;
 	flex-direction: column;
 	align-self: center;
@@ -266,11 +264,6 @@ hr {
 }
 
 #commentsListBox{
-	/*display: flex;
-	display: -webkit-flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: flex-start;*/
 	border: 1px black solid;
 	border-radius: 20px;
 	padding: 0 20px 0 20px;
@@ -334,6 +327,19 @@ hr {
 	font-family: serif;
 	font-size: 1em;
 	font-style: normal;
+}
+
+footer{
+	display: flex;
+	display: -webkit-flex;
+	align-content: center;
+	justify-content: space-between;
+	height: 30px;
+	padding: 20px 500px;
+	background-color: #ffffff;
+	border-top: 3px solid red;
+	position: sticky;
+	top: 0;
 }
 
 

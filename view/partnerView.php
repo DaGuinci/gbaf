@@ -11,16 +11,16 @@
 
 	<div id="commentsListBox">
 	<div id="commentsBanner">
-	<h1><p><?=$commentsNbr?> Commentaires</h1>
+	<h1><?=$commentsNbr?> Commentaires</h1>
 	<div id="commentBoxMenu">
 	<div class="commentBoxEntry">
 	<a href="./index.php?action=comment&amp;id=<?=$partner['id_acteur']?>">Ajouter un commentaire</a>
 	<a href="./index.php?action=comment&amp;id=<?=$partner['id_acteur']?>"><img src="./public/images/comment.png" alt="like"></a>
 	</div>
 	<div class="commentBoxEntry"><p><?=$likesNbr?></p>
-	<img src="./public/images/like.png" alt="like"></div>
+	<a href="./index.php?action=vote&amp;partnerId=<?=$partner['id_acteur']?>&amp;vote=like"><img src="./public/images/like.png" alt="like"></a></div>
 	<div class="commentBoxEntry">
-	<img src="./public/images/dislike.png" alt="like"><p><p><?=$disLikesNbr?></p></div>
+	<a href="./index.php?action=vote&amp;partnerId=<?=$partner['id_acteur']?>&amp;vote=dislike"><img src="./public/images/dislike.png" alt="like"></a><p><?=$disLikesNbr?></p></div>
 	</div>
 	</div>
 	
