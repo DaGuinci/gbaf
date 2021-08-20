@@ -1,7 +1,7 @@
 <?php $title = 'Inscription'; ?>
 
 <?php ob_start(); ?>
-	<div id="suscribeForm">
+	<div id="subscribeForm">
 	<img src="./public/images/logoGbaf.png" alt="Logo du Gbaf">
 	<h1>Formulaire d'inscription :</h1>
 	<form action="./index.php?action=sendNewUser" method="post">

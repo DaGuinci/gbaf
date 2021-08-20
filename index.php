@@ -36,12 +36,12 @@ switch ($_GET['action']) {
 		loginPage();
 		break;
 
-	case 'suscribe':
-		suscribe();
+	case 'subscribe':
+		subscribe();
 		break;
 
 	case 'sendNewUser':
-		suscribeProcess($_POST['firstName'],$_POST['name'],$_POST['userName'],
+		subscribeProcess($_POST['firstName'],$_POST['name'],$_POST['userName'],
 		$_POST['pass'],$_POST['passConfirm'],$_POST['secretQuestion'],$_POST['answer']);
 		break;
 		

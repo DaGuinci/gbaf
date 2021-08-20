@@ -34,11 +34,11 @@ function logUser($userName,$pass,$stayLogged) {
 	}
 }
 
-function suscribe() {
-	require('./view/suscribeView.php');
+function subscribe() {
+	require('./view/subscribeView.php');
 }
 
-function suscribeProcess($firstName, $name, $userName, $pass,$passConfirm,
+function subscribeProcess($firstName, $name, $userName, $pass,$passConfirm,
 $secretQuestion, $answer) {
 	if ($pass == $passConfirm) {
 		$isUserNameDispo=verifUserName($userName);
@@ -58,7 +58,7 @@ $secretQuestion, $answer) {
 			ob_start(); ?>
 		<div id="message">
 		Nom d'utilisateur non disponible
- 		<a href="./index.php?action=suscribe" class="retryButton" >Réessayer</a>
+ 		<a href="./index.php?action=subscribe" class="retryButton" >Réessayer</a>
  		</div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
@@ -68,7 +68,7 @@ $secretQuestion, $answer) {
 	else {
 		ob_start(); ?>
 	<div id="message">Mots de passe différents
-	<a href="./index.php?action=suscribe" class="retryButton" >Réessayer</a>
+	<a href="./index.php?action=subscribe" class="retryButton" >Réessayer</a>
 	</div>
 	<?php $content = ob_get_clean();
 	require('./view/headerView.php');

@@ -1,7 +1,7 @@
 <?php $title = 'Modification du compte';?>
 
 <?php ob_start(); ?>
-	<div id="suscribeForm">
+	<div id="subscribeForm">
 	<img src="./public/images/logoGbaf.png" alt="Logo du Gbaf">
 	<h1>Modifier les informations de votre compte :</h1>
 	<form action="./index.php?action=sendModif" method="post">

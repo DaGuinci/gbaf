@@ -9,7 +9,8 @@ function listPartners(){
 function partnerInfo($id) {
 	$partner=getPartnerInfo($id);
 	$comments=getComments($id);
-	$commentsNbr=count($comments);
+	if (!empty($comments)){
+	$commentsNbr=count($comments);}
 	$likesNbr=votesCount($id,'like');
 	$disLikesNbr=votesCount($id, 'disLike');
 	require('./view/partnerView.php');

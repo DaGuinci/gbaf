@@ -25,16 +25,19 @@
 	</div>
 	
 	<?php
+	if (!empty($comments)){
 	foreach ($comments as $comment) {
 		?>
 		<div id=oneCommentBox>
-		<p>Auteur : <em><?=$comment['author']?></em></p>
+		<p>Auteur : <em><?=$comment['prenom']?></em></p>
 		<p>Date : <em><?=$comment['date_add']?></em></p>
 		<p>Commentaire : <em><?=$comment['post']?></em></p>
 		</div>
 		<?php
-		}
-		?>
+		}}
+	else {
+		echo '<p>Aucun commentaire à afficher</p>';
+	}?>
 </div>
 </div>
 <?php $content = ob_get_clean(); ?>

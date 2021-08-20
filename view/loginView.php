@@ -16,9 +16,11 @@
 		</div>
 		<input id="connectButton" type="submit" value="Valider" />
 	</form>
+	<div id="connectOptions">
 	<a href="./index.php?action=forgotPass">Mot de passe oublié</a>
 	<em>Pas encore membre ?</em>
-	<a href="./index.php?action=suscribe">Cliquez ici pour vous inscrire.</a>
+	<a href="./index.php?action=subscribe">Cliquez ici pour vous inscrire.</a>
+	</div>
 	</div>
 
 <?php $content = ob_get_clean(); ?>

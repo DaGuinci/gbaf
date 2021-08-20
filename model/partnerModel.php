@@ -34,7 +34,19 @@ function getPartnerInfo($id){
 
 function getComments($partnerId){
 	$db=dbConnect();
-	$data=$db->prepare('SELECT * FROM post WHERE id_acteur=:id');
+	$data=$db->prepare('SELECT
+    post.*,DATE_FORMAT(date_add, "%d/%m/%Y") AS date_add,
+    acount.prenom
+	FROM
+    post
+    INNER JOIN acount ON acount.id_user=post.id_user
+    WHERE id_acteur=:id');
+	$data->execute(array(
+	'id'=>$partnerId));
+	$comments=$data->fetchAll();
+	return $comments;
+	/*
+	$data=$db->prepare('SELECT *, DATE_FORMAT(date_add, "%d/%m/%Y") AS date_add FROM post WHERE id_acteur=:id');
 	$data->execute(array(
 	'id'=>$partnerId));
 	$comments=$data->fetchAll(PDO::FETCH_ASSOC);
@@ -46,11 +58,11 @@ function getComments($partnerId){
 		$comment['author']=$author;
 		$commentsList[]=$comment;
 	}
-		/*echo "<pre>";
-		var_dump($commentsList);
-		echo "</pre>";*/
+		echo "<pre>";
+		var_dump($comments);
+		echo "</pre>";
 	$data->closeCursor();
-	return $commentsList;
+	return $commentsList;*/
 }
 
 function createComment($userId, $partnerId, $comment){
@@ -102,3 +114,4 @@ function voted($partnerId,$userId){
 	$reponse=$req->fetch();
 	return $reponse['nbr'];
 }
+
