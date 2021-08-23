@@ -1,7 +1,7 @@
 <?php $title = $partner['acteur']; ?>
 <?php ob_start(); ?>
 <div class="partnerSection">
-	<div class="present">
+	<div class="partnerPresentation">
 	<a href="./index.php">Retour à la liste</a>
 	<img src="<?= htmlspecialchars($partner['logo']) ?>" alt="Logo partenaire"/>
 	<h2><?=htmlspecialchars($partner['acteur'])?></h2>

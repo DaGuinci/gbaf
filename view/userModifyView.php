@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 	<div id="subscribeForm">
-	<img src="./public/images/logoGbaf.png" alt="Logo du Gbaf">
+	<img src="./public/images/logoGbaf.png" alt="Logo du Gbaf" class="logoForm">
 	<h1>Modifier les informations de votre compte :</h1>
 	<form action="./index.php?action=sendModif" method="post">
 		<p>Nom :</p>

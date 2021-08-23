@@ -6,8 +6,9 @@ $name=$_SESSION['name'];?>
 <?php
 if (!empty($_SESSION['id'])){
 	ob_start();?>
-	<img id="logoSite" src="./public/images/logoGbaf.png" alt="Logo du Gbaf"/>
-	<div id="userLog">
+	<a href="./index.php">
+	<img id="logoSite" src="./public/images/logoGbaf.png" alt="Logo du Gbaf"/></a>
+	<div class="userLog">
 		<p id="userName"><?=$firstName ?> <?=$name ?></p>
 		<img src="./public/images/logged.png" alt="logged"/>
 	</div>
@@ -19,10 +20,10 @@ if (!empty($_SESSION['id'])){
 
 else{
 	ob_start();?>
-	<img id="logoSite" src="./public/images/logoGbaf.png" alt="Logo du Gbaf"/>
-	<div id="userLog">
-		<p id="userName"><?=$firstName ?> <?=$name ?></p>
-		<img src="./public/images/unlogged.png" alt="logged"/>
+	<a href="./index.php">
+	<img id="logoSite" src="./public/images/logoGbaf.png" alt="Logo du Gbaf"/></a>
+	<div class="userLog">
+		<img src="./public/images/unlogged.png" alt="unLogged"/>
 	</div>
 <?php $headerContent = ob_get_clean();}
 ?>

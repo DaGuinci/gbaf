@@ -1,8 +1,8 @@
 <?php $title = 'Inscription'; ?>
 
 <?php ob_start(); ?>
-	<div id="subscribeForm">
-	<img src="./public/images/logoGbaf.png" alt="Logo du Gbaf">
+
+	<img src="./public/images/logoGbaf.png" class="logoForm" alt="Logo du Gbaf"/>
 	<h1>Formulaire d'inscription :</h1>
 	<form action="./index.php?action=sendNewUser" method="post">
 		<p>Nom :</p>
@@ -21,7 +21,7 @@
 		<input type="text" name="answer" required />
 		<input class="button" type="submit" value="Valider" />
 	</form>
-	</div>
+
 
 <?php $content = ob_get_clean(); ?>
 

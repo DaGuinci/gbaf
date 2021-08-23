@@ -1,7 +1,7 @@
 <?php $title = 'Les partenaires'; ?>
 <?php ob_start(); ?>
 <div class="partnerSection">
-<div class="present">
+<div class="partnerPresentation">
 	<h1>Le GBAF, un créateur de lien</h1>
 	<p>Né D'une volonté de mutualiser les ressources de nos différents membres, 
 	Le Groupement Banque Assurance Français​ (GBAF) est une fédération	représentant 
@@ -18,18 +18,18 @@
 	<hr>
 </div>
 <div id="partnersList">
-	<h1>Les partenaires du GBAF</h1>
+	<h2>Les partenaires du GBAF</h2>
 		<?php
 		foreach ($partnersList as $partner) {
 			$partnerId=$partner['id_acteur'];
 		?>
 		<div id="partnerBox">
 		<img src="<?= htmlspecialchars($partner['logo']) ?>" alt="Logo partenaire"/>
-			<div id="partnerDescription">
-			<h2> <?= htmlspecialchars($partner['acteur']) ?></h2>
+			<div class="partnerDescription">
+			<h3> <?= htmlspecialchars($partner['acteur']) ?></h3>
 			<p id="description"> <?= htmlspecialchars($partner['firstLine']) ?></p>
 			</div>
-		<a href="./index.php?action=partnerPage&amp;id=<?=$partner['id_acteur']?>"><button class="button" type="button"> Lire la suite </button></a>
+		<a href="./index.php?action=partnerPage&amp;id=<?=$partner['id_acteur']?>"><button class="button" type="button" id="moreInfo"> Lire la suite </button></a>
 		</div>
 		<?php
 		}

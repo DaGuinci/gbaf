@@ -25,8 +25,9 @@ function logUser($userName,$pass,$stayLogged) {
 	
 	else {
 		ob_start(); ?>
-		<div id="message">Couple identifiant / mot de passe incorrect;
-			<a href="./index.php?action=login" class="retryButton" >Réessayer</a>
+		<div class="message">
+		<p>Couple identifiant / mot de passe incorrect</p>
+			<a href="./index.php?action=login" class="button" >Réessayer</a>
 		</div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
@@ -47,8 +48,8 @@ $secretQuestion, $answer) {
 			$title = 'Inscription';
 			logUser($userName,$pass,'');
 			ob_start();?>
-			<div id="message">Votre compte a bien été créé
-			<a href="./index.php" class="retryButton" >Accueil</a>
+			<div class="message"><p>Votre compte a bien été créé</p>
+			<a href="./index.php" class="button" >Accueil</a>
 			</div>
 			<?php $content = ob_get_clean();
 			require('./view/headerView.php');
@@ -56,9 +57,9 @@ $secretQuestion, $answer) {
 		}
 		else {
 			ob_start(); ?>
-		<div id="message">
-		Nom d'utilisateur non disponible
- 		<a href="./index.php?action=subscribe" class="retryButton" >Réessayer</a>
+		<div class="message">
+		<p>Nom d'utilisateur non disponible</p>
+ 		<a href="./index.php?action=subscribe" class="button" >Réessayer</a>
  		</div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
@@ -67,8 +68,8 @@ $secretQuestion, $answer) {
 	}
 	else {
 		ob_start(); ?>
-	<div id="message">Mots de passe différents
-	<a href="./index.php?action=subscribe" class="retryButton" >Réessayer</a>
+	<div class="message"><p>Mots de passe différents</p>
+	<a href="./index.php?action=subscribe" class="button" >Réessayer</a>
 	</div>
 	<?php $content = ob_get_clean();
 	require('./view/headerView.php');
@@ -92,16 +93,16 @@ $newPass,$newPassConfirm,$pass){
 			passModify($id,$newPass);
 			logUser($userName,$newPass,'');
 			ob_start(); ?>
-				<div id="message">Votre compte a été mis à jour
-				<a href="./index.php" class="retryButton" >Retour à l'accueil</a></div>
+				<div class="message"><p>Votre compte a été mis à jour</p>
+				<a href="./index.php" class="button" >Retour à l'accueil</a></div>
 				<?php $content = ob_get_clean();
 				require('./view/headerView.php');
 				require('./view/template.php');
 			}
 		elseif (!empty($newPass)AND($newPass!=$newPassConfirm)) {
 			ob_start(); ?>
-				<div id="message">Nouveaux mots de passe différents
-				<a href="./index.php?action=userModifyForm" class="retryButton" >
+				<div class="message"><p>Nouveaux mots de passe différents</p>
+				<a href="./index.php?action=userModifyForm" class="button" >
 				Réessayer</a>
 				</div>
 			<?php $content = ob_get_clean();
@@ -112,8 +113,8 @@ $newPass,$newPassConfirm,$pass){
 		userModify($id,$firstName,$name,$userName,$secretQuestion,$answer);
 		logUser($userName,$pass,'');
 		ob_start(); ?>
-		<div id="message">Votre compte a été mis à jour
-		<a href="./index.php" class="retryButton" >Retour à l'accueil</a></div>
+		<div class="message"><p>Votre compte a été mis à jour</p>
+		<a href="./index.php" class="button" >Retour à l'accueil</a></div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
 		require('./view/template.php');
@@ -122,8 +123,8 @@ $newPass,$newPassConfirm,$pass){
 	
 	else {
 	ob_start(); ?>
-		<div id="message">Mot de passe incorrect
-		<a href="./index.php?action=userModifyForm" class="retryButton" >Réessayer</a></div>
+		<div class="message"><p>Mot de passe incorrect</p>
+		<a href="./index.php?action=userModifyForm" class="button" >Réessayer</a></div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
 		require('./view/template.php');
@@ -140,8 +141,8 @@ function passQuestion($userName){
 	require('./view/passQuestionView.php');}
 	else{
 		ob_start(); ?>
-		<div id="message">Identifiant inconnu
-		<a href="./index.php?action=forgotPass" class="retryButton" >Réessayer</a></div>
+		<div class="message"><p>Identifiant inconnu</p>
+		<a href="./index.php?action=forgotPass" class="button" >Réessayer</a></div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
 		require('./view/template.php');
@@ -153,8 +154,8 @@ function answerVerif($userName, $userAnswer){
 	if ($answer==$userAnswer){passInit($userName);}
 	else {
 	ob_start(); ?>
-		<div id="message">Réponse incorrecte
-		<a href="./index.php?action=passRecover" class="retryButton" >Réessayer</a></div>
+		<div class="message"><p>Réponse incorrecte</p>
+		<a href="./index.php?action=passRecover" class="button" >Réessayer</a></div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
 		require('./view/template.php');
@@ -169,15 +170,15 @@ function passInitProcess($userName,$pass,$passConfirm){
 	if($pass==$passConfirm){
 	userPassModify($userName,$pass);
 	ob_start(); ?>
-		<div id="message">Votre compte a été mis à jour
-		<a href="./index.php" class="retryButton" >Retour à l'accueil</a></div>
+		<div class="message"><p>Votre compte a été mis à jour</p>
+		<a href="./index.php" class="button" >Retour à l'accueil</a></div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
 		require('./view/template.php');}
 	else{
 		ob_start(); ?>
-		<div id="message">Mots de passe différents
-		<a href="./index.php?action=passInit" class="retryButton" >Réessayer</a></div>
+		<div class="message"><p>Mots de passe différents</p>
+		<a href="./index.php?action=passInit" class="button" >Réessayer</a></div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
 		require('./view/template.php');
