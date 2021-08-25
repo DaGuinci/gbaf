@@ -2,7 +2,6 @@
 session_start();
 require('/var/www/html/public/gbaf/controller/partnerController.php');
 require('controller/userController.php');
-//print_r($_SESSION['id']);
 
 switch ($_GET['action']) {
 	case 'listPartners':
@@ -70,13 +69,26 @@ switch ($_GET['action']) {
 		break;
 	
 	case 'sendNewComment':
+		if (!isset($_POST['vote'])){
+			addCommentOnly($_POST['partnerId'],$_POST['comment']);
+		}
+		
+		else{
 		addNewComment($_POST['partnerId'],$_POST['vote'],$_POST['comment']);
+		}
 		break;
 
 	case 'vote':
 		addVote($_GET['partnerId'],$_SESSION['id'],$_GET['vote']);
 		break;
 	
+	case 'termsConditions':
+		termsConditions();
+		break;
+		
+	case 'contact':
+		contactPage();
+		break;
 	
 	default:
 		if (isset($_SESSION['id']) AND isset($_SESSION['userName'])) {

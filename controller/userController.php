@@ -184,3 +184,11 @@ function passInitProcess($userName,$pass,$passConfirm){
 		require('./view/template.php');
 	}
 }
+
+function termsConditions(){
+		require('./view/termsConditionsView.php');
+}
+
+function contactPage(){
+		require('./view/contactView.php');
+}

@@ -11,7 +11,10 @@
 
 	<div id="commentsListBox">
 	<div id="commentsBanner">
-	<h1><?=$commentsNbr?> Commentaires</h1>
+	<?php if($commentsNbr>1){
+		echo "<h1>$commentsNbr Commentaires</h1>";}
+	else{
+		echo "<h1>$commentsNbr Commentaire</h1>";}?>
 	<div id="commentBoxMenu">
 	<div class="commentBoxEntry">
 	<a href="./index.php?action=comment&amp;id=<?=$partner['id_acteur']?>">Ajouter un commentaire</a>

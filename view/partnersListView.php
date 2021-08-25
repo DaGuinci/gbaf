@@ -27,7 +27,7 @@
 		<img src="<?= htmlspecialchars($partner['logo']) ?>" alt="Logo partenaire"/>
 			<div class="partnerDescription">
 			<h3> <?= htmlspecialchars($partner['acteur']) ?></h3>
-			<p id="description"> <?= htmlspecialchars($partner['firstLine']) ?></p>
+			<p id="description"> <?= htmlspecialchars($partner['shortDescription']) ?></p>
 			</div>
 		<a href="./index.php?action=partnerPage&amp;id=<?=$partner['id_acteur']?>"><button class="button" type="button" id="moreInfo"> Lire la suite </button></a>
 		</div>

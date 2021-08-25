@@ -3,23 +3,17 @@ require ('dbConnect.php');
 
 function getPartnersList(){
 	$db=dbConnect();
-	$data = $db->query('SELECT * FROM acteur');
+	$request=<<<END
+	SELECT
+		a.*,
+		CONCAT(LEFT(a.description,85),' (...)') AS shortDescription
+	FROM
+		acteur a
+END;
+	
+	$data = $db->query($request);
 	$partnersList=$data->fetchAll();
-	foreach ($partnersList as $partner) {
-		$firstLine=cutFirstLine($partner['description'],85);
-		$partner['firstLine']=$firstLine;
-		$newList[]=$partner;
-		}
-	return $newList;
-}
-
-function cutFirstLine($text, $max){
-	if (strlen($text)>=$max) {
-		$max=strpos($text,' ',90);
-		$firstLine=substr($text,0,$max);
-	}
-	$firstLine .= ' (...)';
-	return $firstLine;
+	return $partnersList;
 }
 
 function getPartnerInfo($id){
@@ -45,24 +39,6 @@ function getComments($partnerId){
 	'id'=>$partnerId));
 	$comments=$data->fetchAll();
 	return $comments;
-	/*
-	$data=$db->prepare('SELECT *, DATE_FORMAT(date_add, "%d/%m/%Y") AS date_add FROM post WHERE id_acteur=:id');
-	$data->execute(array(
-	'id'=>$partnerId));
-	$comments=$data->fetchAll(PDO::FETCH_ASSOC);
-	foreach ($comments as $comment) {
-		$getAuthor=$db->prepare('SELECT username FROM acount WHERE id_user=:user');
-		$getAuthor->execute(array('user'=>$comment['id_user']));
-		$author=$getAuthor->fetch(PDO::FETCH_ASSOC);
-		$author=$author['username'];
-		$comment['author']=$author;
-		$commentsList[]=$comment;
-	}
-		echo "<pre>";
-		var_dump($comments);
-		echo "</pre>";
-	$data->closeCursor();
-	return $commentsList;*/
 }
 
 function createComment($userId, $partnerId, $comment){

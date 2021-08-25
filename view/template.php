@@ -18,8 +18,8 @@
 		</div>
 
 		<footer>
-		<a href="#">Mentions légales</a>
-		<a href="#">Contact</a>
+		<a href="./index.php?action=termsConditions">Mentions légales</a>
+		<a href="./index.php?action=contact">Contact</a>
 		</footer>
 	</body>
 </html>
