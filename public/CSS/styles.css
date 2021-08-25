@@ -57,6 +57,24 @@ a {
 	text-decoration: none;
 }
 
+@media all and (max-device-width: 480px){
+	img {
+		max-width: 100%;
+	}
+	
+	h1{
+		font-size:1.8em;
+		}
+		
+	h2{
+		font-size:1.5em;
+	}
+		
+		
+		
+		
+}
+
 /*----Header----*/
 
 header {
@@ -142,16 +160,32 @@ header {
 }
 
 @media all and (max-device-width: 480px)	{
+
 	header {
+		width:100%;
 		flex-direction: column;
-		justify-content: center;
-		height: 200px;
+		justify-content: flex-start;
+		height: 170px;
 		background-color:#ffffff;
+		padding:0;
+	}
+	
+	#logoSite {
+		width: 45px;
+		height: auto;
 	}
 	
 	.userLog {
 		flex-direction: row-reverse;
 		flex-grow: 0;
+		margin:0;
+		padding:0;
+		height:55px;
+	}
+	
+	.userLog img {
+		max-width: 45px;
+		height: 45px;
 	}
 	
 	#userName {
@@ -161,8 +195,11 @@ header {
 	
 	#userMenu {
 		flex-direction: row;
+		justify-content:flex-start;
 		align-items: center;
 		position: initial;
+		margin:0;
+		padding:0;
 	}
 	
 	#userMenu img {
@@ -170,7 +207,22 @@ header {
 	}
 	
 	#userMenu li{
-		display: flex;
+		margin:0 10px;
+		display:flex;
+		width:auto;
+		text-align:center;
+	}
+	
+	#userMenu:hover {
+		border: none;
+	}
+	
+	#userMenu a{
+		font-size:1em;
+		width:100px;
+		height:2.1em;
+		text-align:center;
+		margin:0;
 	}
 }
 
@@ -240,7 +292,12 @@ hr {
 }
 
 
-@media all and (max-device-width: 480px)	{
+@media all and (max-device-width: 480px){
+
+	.partnerSection{
+		width: 95%;
+	}
+	
 	#partnerBox {
 		flex-direction: column;
 		justify-content: center;
@@ -248,22 +305,25 @@ hr {
 	}
 	
 	#partnerBox img {
-		width: 400px;
+		width: 100%;
 		height: auto;
 		margin: 20px auto 0 auto;
 	}
 	
 	.partnerPresentation img {
-		max-width: 450px;
 		height: auto;
 	}
 	
+	.partnerDescription {
+		width: 100%;
+	}
+	
 	.partnerDescription p{
-		width: 700px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+	
 }
 
 /*----Partner page ----*/
@@ -334,6 +394,32 @@ hr {
 	font-style: normal;
 }
 
+@media all and (max-device-width: 480px){
+
+	#commentsBanner {
+		flex-direction:column;
+	}
+	
+	.commentBoxEntry {
+		justify-content:center;
+	}
+	
+	.commentBoxEntry img{
+		max-width:30px;
+		height:auto;
+	}
+	
+	.commentBoxEntry:nth-child(1) {
+		margin:0;
+		margin-right:20px;
+		width:150px;
+	}
+	
+	#commentsListBox h1{
+		font-size:1.8em;
+	}
+	
+}
 
 /*----Ajouter un commentaire----*/
 
@@ -355,6 +441,31 @@ textarea {
 	height: 300px;
 }
 
+
+@media all and (max-device-width: 480px){
+
+	form {
+	}
+
+	textarea{
+		width:300px;
+		height:200px;
+	}
+	
+	#likeDislike{
+		width:200px;
+	}
+		
+	input[type="radio"]{
+		width:20px;
+		height:auto;
+	}
+	
+	#likeDislike img{
+		width: 40px;
+		height: auto;
+	}
+}
 /*----Messages d'erreur et de validation----*/
 
 .message {
