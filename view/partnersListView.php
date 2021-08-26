@@ -19,6 +19,8 @@
 </div>
 <div id="partnersList">
 	<h2>Les partenaires du GBAF</h2>
+	<p>Les partenaires du GBAF, qui vous sont présentés ci-dessous, ont tous fait l'objet d'une démarche de partenariat approfondie, constructive et exigeante.</p>
+	<p>Si vous connaissez ou avez un avis particulier sur l'un ou plusieurs des partenaires listés, n'hésitez pas à nous en faire part en cliquant sur les boutons "j'aime" ou "je n'aime pas", ou en remplissant un commentaire.</p>
 		<?php
 		foreach ($partnersList as $partner) {
 			$partnerId=$partner['id_acteur'];
