@@ -1,23 +1,27 @@
 <?php
 session_start();
-require('/var/www/html/public/gbaf/controller/partnerController.php');
+require('controller/partnerController.php');
 require('controller/userController.php');
 
 switch ($_GET['action']) {
 	case 'listPartners':
-	if (isset($_SESSION['id'])) {
-		listPartners();}
-	else {loginPage();}
+		if (isset($_SESSION['id'])) {
+			listPartners();}
+		else {loginPage();}
 		break;
 
 	case 'login':
-		loginPage();
+	if (!empty($_COOKIE['userName'] AND !empty($_COOKIE['pass']))){
+		logUser($_COOKIE['userName'],$_COOKIE['pass'],null);
+		listPartners();}
+		else{
+		loginPage();}
 		break;
 
 	case 'logUser':
 		logUser($_POST['userName'],$_POST['pass'], $_POST['stayLogged']);
 		if (isset($_SESSION['id'])) {
-			listPartners();}
+		listPartners();}
 		break;
 
 	case 'userModifyForm':
@@ -32,6 +36,7 @@ switch ($_GET['action']) {
 
 	case 'logOut':
 		$_SESSION=array();
+		$_COOKIE=array();
 		loginPage();
 		break;
 
@@ -99,3 +104,4 @@ switch ($_GET['action']) {
 		}
 		break;
 }
+

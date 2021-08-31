@@ -3,8 +3,8 @@ session_start();
 require ('./model/userModel.php');
 
 function loginPage(){
-	require('./view/headerView.php');
-	require('./view/loginView.php');
+		require('./view/headerView.php');
+		require('./view/loginView.php');
 }
 
 function logUser($userName,$pass,$stayLogged) {
@@ -27,7 +27,7 @@ function logUser($userName,$pass,$stayLogged) {
 		ob_start(); ?>
 		<div class="message">
 		<p>Couple identifiant / mot de passe incorrect</p>
-			<a href="./index.php?action=login" class="button" >Réessayer</a>
+			<a href="./index.php?action=loginPage" class="button" >Réessayer</a>
 		</div>
 		<?php $content = ob_get_clean();
 		require('./view/headerView.php');
