@@ -5,7 +5,7 @@
 	<img src="./public/images/logoGbaf.png" alt="Logo du Gbaf" class="logoForm" />
 	<h1>Reinitialisation de votre mot de passe</h1>
 	<form action="./index.php?action=sendPassInit" method="post">
-		<input type="hidden" name="userName" value="<?=$userName?>"/>
+		<input type="hidden" name="userName" value="<?=htmlspecialchars($userName)?>"/>
 		<p>Mot de passe :</p>
 		<input type="password" name="pass" required />
 		<p>Confirmation du mot de passe :</p>

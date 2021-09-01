@@ -1,10 +1,16 @@
 <?php
 session_start();
-require ('./model/userModel.php');
+include_once ('./model/userModel.php');
 
 function loginPage(){
+	if ($_COOKIE['status']==1){
+		logWithCookie();
+		listPartners();
+	}
+	
+	else{
 		require('./view/headerView.php');
-		require('./view/loginView.php');
+		require('./view/loginView.php');}
 }
 
 function logUser($userName,$pass,$stayLogged) {
@@ -18,9 +24,12 @@ function logUser($userName,$pass,$stayLogged) {
 		$_SESSION['name']=$user['nom'];
 		$_SESSION['question']=$user['question'];
 		$_SESSION['answer']=$user['reponse'];
+		$_SESSION['isConnected']=TRUE;
 		
 		if ($stayLogged=="checked"){
-			createCookie($userName,$pass);}
+			$userHashed=hash('sha256', $userName);
+			$isConnected=TRUE;
+			createCookie($userHashed,$isConnected);}
 	}
 	
 	else {
@@ -35,7 +44,30 @@ function logUser($userName,$pass,$stayLogged) {
 	}
 }
 
+function logWithCookie() {
+	$userName=getCookieName($_COOKIE['user']);
+	$user=getUserInfo($userName);
+		$_SESSION['id']=$user['id_user'];
+		$_SESSION['userName']=$user['username'];
+		$_SESSION['firstName']=$user['prenom'];
+		$_SESSION['name']=$user['nom'];
+		$_SESSION['question']=$user['question'];
+		$_SESSION['answer']=$user['reponse'];
+		$_SESSION['isConnected']=TRUE;
+}
+
+function logUserOut() {
+	session_destroy();
+	$_COOKIE=array();
+	$emptyName='';
+	$isConnected=FALSE;
+	createCookie($emptyName,$isConnected);
+	require('./view/headerView.php');
+	require('./view/logOutView.php');
+}
+
 function subscribe() {
+	require('./view/headerView.php');
 	require('./view/subscribeView.php');
 }
 
@@ -79,6 +111,7 @@ $secretQuestion, $answer) {
 
 function userModifyForm(){
 	$user=getUserInfo($_SESSION['userName']);
+	require('./view/headerView.php');
 	require('./view/userModifyView.php');
 }
 
@@ -132,12 +165,14 @@ $newPass,$newPassConfirm,$pass){
 }
 
 function passRecoverForm(){
+	require('./view/headerView.php');
 	require('./view/passRecoverView.php');
 }
 
 function passQuestion($userName){
 	$question=returnQuestion($userName);
 	if(!empty($question)){
+	require('./view/headerView.php');
 	require('./view/passQuestionView.php');}
 	else{
 		ob_start(); ?>
@@ -163,6 +198,7 @@ function answerVerif($userName, $userAnswer){
 }
 
 function passInit($userName){
+	require('./view/headerView.php');
 	require('./view/passInitFormView.php');
 }
 
@@ -186,9 +222,11 @@ function passInitProcess($userName,$pass,$passConfirm){
 }
 
 function termsConditions(){
-		require('./view/termsConditionsView.php');
+	require('./view/headerView.php');
+	require('./view/termsConditionsView.php');
 }
 
 function contactPage(){
-		require('./view/contactView.php');
+	require('./view/headerView.php');
+	require('./view/contactView.php');
 }

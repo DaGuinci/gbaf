@@ -1,21 +1,17 @@
 <?php
-session_start();
+//session_start();
 require('controller/partnerController.php');
 require('controller/userController.php');
 
 switch ($_GET['action']) {
 	case 'listPartners':
-		if (isset($_SESSION['id'])) {
+		if ($_SESSION['isConnected']==TRUE AND !empty($_SESSION['id'])) {
 			listPartners();}
 		else {loginPage();}
 		break;
 
 	case 'login':
-	if (!empty($_COOKIE['userName'] AND !empty($_COOKIE['pass']))){
-		logUser($_COOKIE['userName'],$_COOKIE['pass'],null);
-		listPartners();}
-		else{
-		loginPage();}
+		loginPage();
 		break;
 
 	case 'logUser':
@@ -35,9 +31,7 @@ switch ($_GET['action']) {
 		break;
 
 	case 'logOut':
-		$_SESSION=array();
-		$_COOKIE=array();
-		loginPage();
+		logUserOut();
 		break;
 
 	case 'subscribe':
@@ -96,7 +90,7 @@ switch ($_GET['action']) {
 		break;
 	
 	default:
-		if (isset($_SESSION['id']) AND isset($_SESSION['userName'])) {
+		if ($_SESSION['isConnected']==TRUE){
 			listPartners();
 		}
 		else {

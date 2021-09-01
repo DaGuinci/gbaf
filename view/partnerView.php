@@ -32,9 +32,9 @@
 	foreach ($comments as $comment) {
 		?>
 		<div id=oneCommentBox>
-		<p>Auteur : <em><?=$comment['prenom']?></em></p>
-		<p>Date : <em><?=$comment['date_add']?></em></p>
-		<p>Commentaire : <em><?=$comment['post']?></em></p>
+		<p>Auteur : <em><?= htmlspecialchars($comment['prenom'])?></em></p>
+		<p>Date : <em><?= htmlspecialchars($comment['date_add'])?></em></p>
+		<p>Commentaire : <em><?= htmlspecialchars($comment['post'])?></em></p>
 		</div>
 		<?php
 		}}

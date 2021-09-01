@@ -1,5 +1,4 @@
 <?php
-session_start();
 $firstName=$_SESSION['firstName'];
 $name=$_SESSION['name'];?>
 
@@ -9,7 +8,7 @@ if (!empty($_SESSION['id'])){
 	<a href="./index.php">
 	<img id="logoSite" src="./public/images/logoGbaf.png" alt="Logo du Gbaf"/></a>
 	<div class="userLog">
-		<p id="userName"><?=$firstName ?> <?=$name ?></p>
+		<p id="userName"><?=htmlspecialchars($firstName) ?> <?=htmlspecialchars($name) ?></p>
 		<img src="./public/images/logged.png" alt="logged"/>
 	</div>
  	<ul id="userMenu"> <img src="./public/images/flecheMenu.png" alt="fleche menu"/>
@@ -25,5 +24,4 @@ else{
 	<div class="userLog">
 		<img src="./public/images/unlogged.png" alt="unLogged"/>
 	</div>
-<?php $headerContent = ob_get_clean();}
-?>
+<?php $headerContent = ob_get_clean();}?>

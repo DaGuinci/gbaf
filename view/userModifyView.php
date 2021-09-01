@@ -6,15 +6,15 @@
 	<h1>Modifier les informations de votre compte :</h1>
 	<form action="./index.php?action=sendModif" method="post">
 		<p>Nom :</p>
-		<input type="text" name="name" value="<?= $user['nom'] ?>" required />
+		<input type="text" name="name" value="<?= htmlspecialchars($user['nom']) ?>" required />
 		<p>Prénom :</p>
-		<input type="text" name="firstName" value="<?= $user['prenom'] ?>" required />
+		<input type="text" name="firstName" value="<?= htmlspecialchars($user['prenom']) ?>" required />
 		<p>Nom d'utilisateur :</p>
-		<input type="text" name="userName" value="<?= $user['username'] ?>"required />
+		<input type="text" name="userName" value="<?= htmlspecialchars($user['username']) ?>"required />
 		<p>Question secrète :</p>
-		<input type="text" name="secretQuestion" value="<?= $user['question'] ?>"required />
+		<input type="text" name="secretQuestion" value="<?= htmlspecialchars($user['question']) ?>"required />
 		<p>Réponse à la question secrète :</p>
-		<input type="text" name="answer" value="<?= $user['reponse'] ?>"required />
+		<input type="text" name="answer" value="<?= htmlspecialchars($user['reponse']) ?>"required />
 		<p>Modification du mot de passe<em>(optionnel) :</em></p>
 		<input type="password" name="newPass"/>
 		<p>Confirmation du nouveau mot de passe :</p>
