@@ -14,15 +14,14 @@ function addUser($firstName, $name, $userName, $pass, $secretQuestion, $answer) 
 	$pass=password_hash($pass, PASSWORD_DEFAULT);
 	$userHashed=hash('sha256', $userName);
 	$db=dbConnect();
-	$req=$db->prepare('INSERT INTO acount(nom, prenom, username, password, question, reponse, username_hashed) VALUES(:firstName, :name, :userName, :pass, :question, :reponse, :user_hashed)');
+	$req=$db->prepare('INSERT INTO acount(nom, prenom, username, password, question, reponse) VALUES(:firstName, :name, :userName, :pass, :question, :reponse)');
 	$req->execute(array(
 	'firstName'=> $firstName,
 	'name' => $name,
 	'userName' => $userName,
 	'pass' => $pass,
 	'question' => $secretQuestion,
-	'reponse' => $answer,
-	'user_hashed' => $userHashed));
+	'reponse' => $answer));
 	$req->closeCursor();
 }
 
@@ -36,24 +35,9 @@ function keyHole($userName, $pass) {
 	return $isPasswordCorrect;
 }
 
-function createCookie($user,$isConnected){
-	setcookie('user',$user,time() + 30*24*3600, null, null, false, true);
-	setcookie('status',$isConnected,time() + 30*24*3600, null, null, false, true);}
-	
-function getCookieName($userCookie){
-	$db = dbConnect();
-	$req = $db->prepare('SELECT username
-	FROM acount WHERE username_hashed= :username');
-	$req->execute(array(
-	'username'=> $userCookie));
-	$resultat=$req->fetch();
-	$userName=$resultat['username'];
-	return $userName;
-}
-
 function getUserInfo($userName) {
 	$db = dbConnect();
-	$req = $db->prepare('SELECT id_user,nom,prenom,username,password,question, reponse
+	$req = $db->prepare('SELECT id_user,nom,prenom,username,password,question,reponse
 	FROM acount WHERE username= :username');
 	$req->execute(array(
 	'username'=> $userName));

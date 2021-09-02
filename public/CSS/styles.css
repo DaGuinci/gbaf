@@ -531,15 +531,6 @@ input[type="checkbox"]{
 	padding: 0;
 }
 
-#stayLogged{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 300px;
-	margin: auto;
-	font-size: 1.5em;
-}
-
 #connectOptions{
 	display: flex;
 	flex-direction: column;

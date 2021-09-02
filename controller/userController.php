@@ -3,17 +3,11 @@ session_start();
 include_once ('./model/userModel.php');
 
 function loginPage(){
-	if ($_COOKIE['status']==1){
-		logWithCookie();
-		listPartners();
-	}
-	
-	else{
-		require('./view/headerView.php');
-		require('./view/loginView.php');}
+	require('./view/headerView.php');
+	require('./view/loginView.php');
 }
 
-function logUser($userName,$pass,$stayLogged) {
+function logUser($userName,$pass) {
 	$checkPass=FALSE;
 	$checkPass=keyHole($userName,$pass);
 	if ($checkPass==TRUE) {
@@ -26,10 +20,6 @@ function logUser($userName,$pass,$stayLogged) {
 		$_SESSION['answer']=$user['reponse'];
 		$_SESSION['isConnected']=TRUE;
 		
-		if ($stayLogged=="checked"){
-			$userHashed=hash('sha256', $userName);
-			$isConnected=TRUE;
-			createCookie($userHashed,$isConnected);}
 	}
 	
 	else {
@@ -44,24 +34,9 @@ function logUser($userName,$pass,$stayLogged) {
 	}
 }
 
-function logWithCookie() {
-	$userName=getCookieName($_COOKIE['user']);
-	$user=getUserInfo($userName);
-		$_SESSION['id']=$user['id_user'];
-		$_SESSION['userName']=$user['username'];
-		$_SESSION['firstName']=$user['prenom'];
-		$_SESSION['name']=$user['nom'];
-		$_SESSION['question']=$user['question'];
-		$_SESSION['answer']=$user['reponse'];
-		$_SESSION['isConnected']=TRUE;
-}
-
 function logUserOut() {
 	session_destroy();
-	$_COOKIE=array();
-	$emptyName='';
 	$isConnected=FALSE;
-	createCookie($emptyName,$isConnected);
 	require('./view/headerView.php');
 	require('./view/logOutView.php');
 }

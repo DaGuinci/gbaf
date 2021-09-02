@@ -15,7 +15,7 @@ switch ($_GET['action']) {
 		break;
 
 	case 'logUser':
-		logUser($_POST['userName'],$_POST['pass'], $_POST['stayLogged']);
+		logUser($_POST['userName'],$_POST['pass']);
 		if (isset($_SESSION['id'])) {
 		listPartners();}
 		break;

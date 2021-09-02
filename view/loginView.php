@@ -9,10 +9,6 @@
 		<input type="text" name="userName"/>
 		<p>Mot de passe :</p>
 		<input type="password" name="pass"/>
-		<div id="stayLogged">
-		<input type="checkbox" name="stayLogged" value="checked"/>
-		<label>Rester connecté</label>
-		</div>
 		<input class="button" type="submit" value="Valider" />
 	</form>
 	<div id="connectOptions">
