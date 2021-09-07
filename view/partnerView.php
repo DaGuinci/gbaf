@@ -1,15 +1,15 @@
 <?php $title = $partner['acteur']; ?>
 <?php ob_start(); ?>
-<div class="partnerSection">
-	<div class="partnerPresentation">
+<section class="partnerSection">
+	<article class="partnerPresentation">
 	<a href="./index.php">Retour à la liste</a>
 	<img src="<?= htmlspecialchars($partner['logo']) ?>" alt="Logo partenaire"/>
 	<h2><?=htmlspecialchars($partner['acteur'])?></h2>
 	<p><?=nl2br(htmlspecialchars($partner['description']))?></p>
 	<hr>
-	</div>
+	</article>
 
-	<div id="commentsListBox">
+	<section id="commentsListBox">
 	<div id="commentsBanner">
 	<?php if($commentsNbr>1){
 		echo "<h1>$commentsNbr Commentaires</h1>";}
@@ -41,8 +41,8 @@
 	else {
 		echo '<p>Aucun commentaire à afficher</p>';
 	}?>
-</div>
-</div>
+</section>
+</section>
 <?php $content = ob_get_clean(); ?>
 <?php require('headerView.php');
 require ('template.php'); ?>

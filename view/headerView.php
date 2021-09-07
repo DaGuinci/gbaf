@@ -7,6 +7,7 @@ if (!empty($_SESSION['id'])){
 	ob_start();?>
 	<a href="./index.php">
 	<img id="logoSite" src="./public/images/logoGbaf.png" alt="Logo du Gbaf"/></a>
+	<nav>
 	<div class="userLog">
 		<p id="userName"><?=htmlspecialchars($firstName) ?> <?=htmlspecialchars($name) ?></p>
 		<img src="./public/images/logged.png" alt="logged"/>
@@ -15,6 +16,7 @@ if (!empty($_SESSION['id'])){
 		<li><a href="./index.php?action=userModifyForm">Paramètres du compte</a></li>
 		<li><a href="./index.php?action=logOut">Se déconnecter</a></li>
 	</ul>
+	</nav>
 <?php $headerContent = ob_get_clean();}
 
 else{

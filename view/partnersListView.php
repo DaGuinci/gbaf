@@ -1,7 +1,7 @@
 <?php $title = 'Les partenaires'; ?>
 <?php ob_start(); ?>
-<div class="partnerSection">
-<div class="partnerPresentation">
+<section class="partnerSection">
+<article class="partnerPresentation">
 	<h1>Le GBAF, un créateur de lien</h1>
 	<p>Né D'une volonté de mutualiser les ressources de nos différents membres, 
 	Le Groupement Banque Assurance Français​ (GBAF) est une fédération	représentant 
@@ -16,8 +16,8 @@
 	nous vous souhaitons une bonne navigation.</p>
 	<img src="./public/images/partnership.jpg" alt="Photo a la une"/>
 	<hr>
-</div>
-<div id="partnersList">
+</article>
+<section id="partnersList">
 	<h2>Les partenaires du GBAF</h2>
 	<p>Les partenaires du GBAF, qui vous sont présentés ci-dessous, ont tous fait l'objet d'une démarche de partenariat approfondie, constructive et exigeante.</p>
 	<p>Si vous connaissez ou avez un avis particulier sur l'un ou plusieurs des partenaires listés, n'hésitez pas à nous en faire part en cliquant sur les boutons "j'aime" ou "je n'aime pas", ou en remplissant un commentaire.</p>
@@ -36,8 +36,8 @@
 		<?php
 		}
 		?>
-</div>
-</div>
+</section>
+</section>
 <?php $content = ob_get_clean(); ?>
 <?php require('headerView.php');
 require ('template.php'); ?>

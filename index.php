@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require('controller/partnerController.php');
 require('controller/userController.php');
 
@@ -60,11 +59,17 @@ switch ($_GET['action']) {
 		break;
 		
 	case 'partnerPage':
-		partnerInfo($_GET['id']);
+		if ($_SESSION['isConnected']==TRUE AND !empty($_SESSION['id'])){
+			partnerInfo($_GET['id']);}
+		else {loginPage();}
+	
+	
 		break;
 	
 	case 'comment':
-		commentForm($_GET['id']);
+		if ($_SESSION['isConnected']==TRUE AND !empty($_SESSION['id'])){
+		commentForm($_GET['id']);}
+		else {loginPage();}
 		break;
 	
 	case 'sendNewComment':
