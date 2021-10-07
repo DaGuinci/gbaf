@@ -3,7 +3,7 @@ include_once ('./model/dbConnect.php');
 
 function verifUserName($userName){
 	$db=dbConnect();
-	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM acount WHERE username = ?');
+	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM gbafacount WHERE username = ?');
 	$req->execute(array($userName));
 	$reponse=$req->fetch();
 	return $reponse['nbr'];
@@ -14,7 +14,7 @@ function addUser($firstName, $name, $userName, $pass, $secretQuestion, $answer) 
 	$pass=password_hash($pass, PASSWORD_DEFAULT);
 	$userHashed=hash('sha256', $userName);
 	$db=dbConnect();
-	$req=$db->prepare('INSERT INTO acount(nom, prenom, username, password, question, reponse) VALUES(:firstName, :name, :userName, :pass, :question, :reponse)');
+	$req=$db->prepare('INSERT INTO gbafacount(nom, prenom, username, password, question, reponse) VALUES(:firstName, :name, :userName, :pass, :question, :reponse)');
 	$req->execute(array(
 	'firstName'=> $firstName,
 	'name' => $name,
@@ -27,7 +27,7 @@ function addUser($firstName, $name, $userName, $pass, $secretQuestion, $answer) 
 
 function keyHole($userName, $pass) {
 	$db = dbConnect();
-	$req = $db->prepare('SELECT password FROM acount WHERE username= :username');
+	$req = $db->prepare('SELECT password FROM gbafacount WHERE username= :username');
 	$req->execute(array(
 	'username'=> $userName));
 	$resultat=$req->fetch();
@@ -38,7 +38,7 @@ function keyHole($userName, $pass) {
 function getUserInfo($userName) {
 	$db = dbConnect();
 	$req = $db->prepare('SELECT id_user,nom,prenom,username,password,question,reponse
-	FROM acount WHERE username= :username');
+	FROM gbafacount WHERE username= :username');
 	$req->execute(array(
 	'username'=> $userName));
 	$resultat=$req->fetch();
@@ -47,7 +47,7 @@ function getUserInfo($userName) {
 
 function userModify($id, $firstName, $name, $userName, $secretQuestion, $answer){
 	$db=dbConnect();
-	$req=$db->prepare('UPDATE acount SET nom=:name, prenom=:firstName, username=:userName,
+	$req=$db->prepare('UPDATE gbafacount SET nom=:name, prenom=:firstName, username=:userName,
 	question = :newQuestion, reponse = :reponse WHERE id_user = :userId');
 	$req->execute(array(
 	'name' => $name,
@@ -62,7 +62,7 @@ function userModify($id, $firstName, $name, $userName, $secretQuestion, $answer)
 function passModify($id, $newPass){
 	$pass=password_hash($newPass, PASSWORD_DEFAULT);
 	$db=dbConnect();
-	$req=$db->prepare('UPDATE acount SET password=:pass WHERE id_user=:userId');
+	$req=$db->prepare('UPDATE gbafacount SET password=:pass WHERE id_user=:userId');
 	$req->execute(array(
 	'userId'=>$id,
 	'pass'=> $pass));
@@ -71,7 +71,7 @@ function passModify($id, $newPass){
 
 function returnQuestion($userName){
 	$db = dbConnect();
-	$req = $db->prepare('SELECT question FROM acount WHERE username= :username');
+	$req = $db->prepare('SELECT question FROM gbafacount WHERE username= :username');
 	$req->execute(array(
 	'username'=> $userName));
 	$resultat=$req->fetch();
@@ -81,7 +81,7 @@ function returnQuestion($userName){
 
 function getAnswer($userName){
 	$db = dbConnect();
-	$req = $db->prepare('SELECT reponse FROM acount WHERE username= :username');
+	$req = $db->prepare('SELECT reponse FROM gbafacount WHERE username= :username');
 	$req->execute(array(
 	'username'=> $userName));
 	$answer=$req->fetch();
@@ -92,7 +92,7 @@ function getAnswer($userName){
 function userPassModify($userName, $newPass){
 	$pass=password_hash($newPass, PASSWORD_DEFAULT);
 	$db=dbConnect();
-	$req=$db->prepare('UPDATE acount SET password=:pass WHERE username=:userName');
+	$req=$db->prepare('UPDATE gbafacount SET password=:pass WHERE username=:userName');
 	$req->execute(array(
 	'userName'=>$userName,
 	'pass'=> $pass));

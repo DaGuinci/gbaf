@@ -8,7 +8,7 @@ function getPartnersList(){
 		a.*,
 		CONCAT(LEFT(a.description,85),' (...)') AS shortDescription
 	FROM
-		acteur a
+		gbafacteur a
 END;
 	
 	$data = $db->query($request);
@@ -18,7 +18,7 @@ END;
 
 function getPartnerInfo($id){
 	$db=dbConnect();
-	$data = $db->prepare('SELECT * FROM acteur WHERE id_acteur=:id');
+	$data = $db->prepare('SELECT * FROM gbafacteur WHERE id_acteur=:id');
 	$data->execute(array(
 	'id'=>$id));
 	$partnerInfo=$data->fetch();
@@ -29,11 +29,11 @@ function getPartnerInfo($id){
 function getComments($partnerId){
 	$db=dbConnect();
 	$data=$db->prepare('SELECT
-    post.*,DATE_FORMAT(date_add, "%d/%m/%Y") AS date_add,
-    acount.prenom
+    gbafpost.*,DATE_FORMAT(date_add, "%d/%m/%Y") AS date_add,
+    gbafacount.prenom
 	FROM
-    post
-    INNER JOIN acount ON acount.id_user=post.id_user
+    gbafpost
+    INNER JOIN gbafacount ON gbafacount.id_user=gbafpost.id_user
     WHERE id_acteur=:id');
 	$data->execute(array(
 	'id'=>$partnerId));
@@ -43,7 +43,7 @@ function getComments($partnerId){
 
 function createComment($userId, $partnerId, $comment){
 	$db=dbConnect();
-	$req=$db->prepare('INSERT INTO post(id_user, id_acteur, date_add, post) VALUES(:userId, :partnerId, CURDATE(), :post)');
+	$req=$db->prepare('INSERT INTO gbafpost(id_user, id_acteur, date_add, post) VALUES(:userId, :partnerId, CURDATE(), :post)');
 	$req->execute(array(
 	'userId'=> $userId,
 	'partnerId' => $partnerId,
@@ -53,7 +53,7 @@ function createComment($userId, $partnerId, $comment){
 
 function createVote($userId,$partnerId,$vote){
 	$db=dbConnect();
-	$req=$db->prepare('INSERT INTO vote(id_user, id_acteur,vote) VALUES(:userId, :partnerId, :vote)');
+	$req=$db->prepare('INSERT INTO gbafvote(id_user, id_acteur,vote) VALUES(:userId, :partnerId, :vote)');
 	$req->execute(array(
 	'userId'=> $userId,
 	'partnerId' => $partnerId,
@@ -63,7 +63,7 @@ function createVote($userId,$partnerId,$vote){
 
 function votesCount($partnerId,$vote){
 	$db=dbConnect();
-	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM vote WHERE id_acteur = :partnerId AND vote=:vote');
+	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM gbafvote WHERE id_acteur = :partnerId AND vote=:vote');
 	$req->execute(array(
 	'partnerId'=>$partnerId,
 	'vote'=>$vote));
@@ -73,7 +73,7 @@ function votesCount($partnerId,$vote){
 
 function commented($partnerId,$userId){
 	$db=dbConnect();
-	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM post WHERE id_acteur = :partnerId AND id_user=:userId');
+	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM gbafpost WHERE id_acteur = :partnerId AND id_user=:userId');
 	$req->execute(array(
 	'partnerId'=>$partnerId,
 	'userId'=>$userId));
@@ -83,7 +83,7 @@ function commented($partnerId,$userId){
 
 function voted($partnerId,$userId){
 	$db=dbConnect();
-	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM vote WHERE id_acteur = :partnerId AND id_user=:userId');
+	$req = $db->prepare('SELECT COUNT(*) AS nbr FROM gbafvote WHERE id_acteur = :partnerId AND id_user=:userId');
 	$req->execute(array(
 	'partnerId'=>$partnerId,
 	'userId'=>$userId));
